@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Report Page</title>
+      <style>
+        body{
+          font-family: Courier, sans-serif;
+          background-color: #F2F2F2;
+        }
+        .title{
+          height: 75px;
+          width: 100%;
+          position: absolute;
+          left: 0%;
+          top: 0%;
+          text-align: center;
+          font-size: 18px;
+        }
+        h1{
+          color: #ff7700;
+        }
+        .result{
+            width: 1000px;
+            height: 600px;
+            position: absolute;
+            text-align: center;
+            top:100px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+        .blockA{
+          width:47%;
+          height:30%;
+          background-color: #c4e6f5;
+          border-radius: 20px;
+          position: absolute;
+          box-shadow:0 2px 3px 0px rgba(0,0,0,0.25);
+          transition:.2s all;
+        }
+        .blockB{
+          width:70%;
+          height:30%;
+          background-color: #333333;
+          border-radius: 30px;
+          position: absolute;
+          top: 32%;
+          right: 15%;
+        }
+        h2{
+          color: black;
+          font-size: 40px;
+          font-family: Fantasy, sans-serif;
+        }
+        .h3{
+          color: white;
+          font-size: 100px;
+          font-family: Fantasy, sans-serif;
+          border: black;
+          vertical-align: bottom;
+        }
+        p{
+          font-size:17px;
+        }
+        .box-wrap{
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          margin:10%;
+        }
+        .box-wrap:hover .blockA{
+          filter:blur(3px);
+          opacity:.5;
+          transform: scale(.98);
+          box-shadow:none;
+        }
+        .box-wrap:hover .blockA:hover{
+          transform:scale(1);
+          filter:blur(0px);
+          opacity:1;
+          box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+        }
+        .blockB:hover {
+          box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+        }
+
+        .blockB:hover::before, .blockB:hover::after {
+          display: block;
+          content: '';
+          position: absolute;
+          width: 102%;
+          height: 105%;
+          background: #5468ff;
+          border-radius: 75px;
+          z-index: -1;
+          animation: 1s clockwise infinite;
+        }
+
+        .blockB:hover:after {
+          background: #F3CE5E;
+          animation: 2s counterclockwise infinite;
+        }
+
+        @keyframes clockwise {
+          0% {
+            top: -5px;
+            left: 0;
+          }
+          12% {
+            top: -2px;
+            left: 2px;
+          }
+          25% {
+            top: 0;
+            left: 5px;
+          }
+          37% {
+            top: 2px;
+            left: 2px;
+          }
+          50% {
+            top: 5px;
+            left: 0;
+          }
+          62% {
+            top: 2px;
+            left: -2px;
+          }
+          75% {
+            top: 0;
+            left: -5px;
+          }
+          87% {
+            top: -2px;
+            left: -2px;
+          }
+          100% {
+            top: -5px;
+            left: 0;
+          }
+        }
+
+        @keyframes counterclockwise {
+          0% {
+            top: -5px;
+            right: 0;
+          }
+          12% {
+            top: -2px;
+            right: 2px;
+          }
+          25% {
+            top: 0;
+            right: 5px;
+          }
+          37% {
+            top: 2px;
+            right: 2px;
+          }
+          50% {
+            top: 5px;
+            right: 0;
+          }
+          62% {
+            top: 2px;
+            right: -2px;
+          }
+          75% {
+            top: 0;
+            right: -5px;
+          }
+          87% {
+            top: -2px;
+            right: -2px;
+          }
+          100% {
+            top: -5px;
+            right: 0;
+          }
+        }
+      </style>
+    </head>
+    <body>
+        <div class="title">
+          <h1>Hi, {{ name }}! Here is your report:</h1>
+        </div>
+        <div class="result">
+          <div class="box-wrap">
+            <div class="blockA" style="top:0%; left: 0%;">
+              <p><strong>The probability of your job being automated is</strong></p>
+              <h2>{{ pComputerisation }} %</h2>
+            </div>
+            <div class="blockA" style="top:0%; right: 0%;">
+              <p><strong>The unemployment rate of your gender group is</strong></p>
+              <h2>{{ pGender }} %</h2>
+              <p><strong>higher than the national unemployment rate</strong></p>
+            </div>
+            <div class="blockA" style="top:64%; left: 0%;">
+              <p><strong>The unemployment rate of your ethnic group is</strong></p>
+              <h2>{{ pRace }} %</h2>
+              <p><strong>higher than the national unemployment rate</strong></p>
+            </div>
+            <div class="blockA" style="top:64%; right: 0%;">
+              <p><strong>The unemployment rate of your age group is</strong></p>
+              <h2>{{ pAge }} %</h2>
+              <p><strong>higher than the national unemployment rate</strong></p>
+            </div>
+            <div class="blockB">
+              <p style="font-size:23px;color:white;"><strong>How likely will you loss your job in the future?</strong></p>
+              <div class="h3">{{ pFinal }} %</div>
+            </div>
+          </div>
+        </div>
+    </body>
+</html>

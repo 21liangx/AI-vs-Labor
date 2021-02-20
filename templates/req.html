@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Take The Test</title>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function() {
+                $.ajax({
+                    url: '{{ url_for("autocomplete") }}'
+                    }).done(function (data){
+                        $('#job_autocomplete').autocomplete({
+                            source: data,
+                            minLength: 1
+                        });
+                    });
+                });
+        </script>
+        <style>
+          body{
+            background-color: #F2F2F2;
+            font-family: Courier, sans-serif;
+            margin: 5%;
+          }
+          a{
+            color: #1E3547;
+            font-size: 20px;
+          }
+          input, select, textarea{
+            width: 18%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+          }
+          form{
+            text-align: center;
+          }
+          h3{
+            text-align: left;
+            margin-left: 37%;
+            color: #1E3547;
+          }
+          button{
+            background-color: #fcd697;
+            font-size: 20px;
+            padding: 3px;
+            font-family: Courier, sans-serif;
+          }
+        </style>
+    </head>
+    <body>
+        <div style="height:10%;width:70%; position:absolute; left:15%;">
+            <a href="{{ url_for('index') }}">Go Back</a>
+        </div>
+        <div style="width:80%;position:absolute;top:15%;left:10%;">
+            <form action="{{ url_for('report') }}" method="post" style="font-size: 17px;" autocomplete="off">
+                <h3>NAME</h3>
+                <input type="text" name="name" placeholder="Enter Your Name" required><br>
+                <h3>GENDER</h3>
+                <div style="text-align:left; margin-left:40%;">
+                    <input type="radio" id="male" name="gender" value="M" required="required">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="gender" value="F">
+                    <label for="female">Female</label><br>
+                </div>
+                <h3>1's RACE</h3>
+                <div style="text-align:left; margin-left:40%;">
+                    <input type="radio" id="white" name="race" value="WHITE" required="required">
+                    <label for="white">White</label><br>
+                    <input type="radio" id="black" name="race" value="BLACK">
+                    <label for="black">Black or African American</label><br>
+                    <input type="radio" id="asian" name="race" value="ASIAN">
+                    <label for="asian">Asian</label><br>
+                    <input type="radio" id="hispanic" name="race" value="HISPANIC">
+                    <label for="hispanic">Hispanic or Latino</label><br>
+                </div>
+                <h3>AGE</h3>
+                <input type="number" name="age" placeholder="Enter Your Age" min=0 max=100 step="1" required><br>
+                <div>
+                    <h3>{{ form.job.label }}</h3>
+                    {{ form.job }}
+                </div>
+                <p style="font-size:15px;color:red;font-family:Georgia,sans-serif;">{{ text }}<p>
+                <br><br>
+                <button><strong>submit!</strong></button><br><br>
+            </form>
+        </div>
+    </body>
+</html>
