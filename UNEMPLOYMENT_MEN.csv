@@ -1,0 +1,15 @@
+CODE,AGE,TOTAL,WHITE,BLACK,ASIAN,HISPANIC
+T1,"Men, 16 years and over",6.7,6,11,6,8.5
+A,16 to 19 years,14.4,13.7,21.3,6,17.2
+a1,16 to 17 years,13.9,13.6,18.5,6,15.3
+a2,18 to 19 years,14.7,13.8,22.8,7.8,17.9
+T2,20 years and over,6.4,5.7,10.6,6,8.2
+B,20 to 24 years,11.4,9.9,18.1,10.7,11.3
+T3,25 years and over,5.9,5.3,9.7,5.7,7.7
+C,25 to 54 years,6,5.4,9.9,5,7.7
+c1,25 to 34 years,7.1,6.2,12.6,5,9.1
+c2,35 to 44 years,5.6,5.2,9.3,2.7,7.1
+c3,45 to 54 years,5.3,4.8,6.7,7.7,6.7
+T4,55 years and over,5.5,5,9,8.6,7.8
+D,55 to 64 years,5.7,5.1,8.2,9.5,8.1
+T5,65 years and over,5.1,4.7,11.2,5.5,7.1
